@@ -80,9 +80,10 @@ RUN startup_lite && \
 	/bin/bash -c "source $GALAXY_VIRTUAL_ENV/bin/activate; \
 	pip install statsd graphitesend; \
 	python $GALAXY_ROOT/make_users.py -g http://localhost:8080 -a $GALAXY_CONFIG_MASTER_API_KEY" && \
-	python $GALAXY_ROOT/setup_data_libraries.py -i $GALAXY_ROOT/library_data.yaml && \
-	python /setup_toolshed.py -g $GALAXY_ROOT -c make_yaml -t ${CTF_TOOLSHED_URL} --galaxy_url "http://localhost:8080" && \
-	shed-install -a ${GALAXY_CONFIG_MASTER_API_KEY} -t ctf_tools.yml -g "http://localhost:8080"
+	python $GALAXY_ROOT/setup_data_libraries.py -i $GALAXY_ROOT/library_data.yaml
+	#&& \
+	#python /setup_toolshed.py -g $GALAXY_ROOT -c make_yaml -t ${CTF_TOOLSHED_URL} --galaxy_url "http://localhost:8080" && \
+	#shed-install -a ${GALAXY_CONFIG_MASTER_API_KEY} -t ctf_tools.yml -g "http://localhost:8080"
 
 
 
