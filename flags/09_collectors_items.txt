@@ -1,0 +1,1 @@
+Congrats! your flag is: gccctf{excellent_collection_action}

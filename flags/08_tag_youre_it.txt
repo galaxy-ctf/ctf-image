@@ -1,0 +1,1 @@
+Congrats!! here is your flag: gccctf{capture_the_tag}

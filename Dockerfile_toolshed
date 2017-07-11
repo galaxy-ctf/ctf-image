@@ -1,0 +1,17 @@
+FROM bgruening/galaxy-stable:17.05
+MAINTAINER Galaxy CTF Group <galaxians@hx42.org>
+
+## not working?
+RUN /bin/bash -c "source $GALAXY_VIRTUAL_ENV/bin/activate; pip install requests bioblend planemo;"
+
+# configure toolshed
+ADD toolshed/setup_toolshed.py /setup_toolshed.py
+ADD toolshed/setup.sh /setup.sh
+ADD challenges /challenges/
+ADD toolshed/nginx.conf /etc/nginx/nginx.conf
+RUN /setup.sh
+ADD toolshed/run.sh /run.sh
+
+EXPOSE 9009
+
+CMD ["/run.sh"]

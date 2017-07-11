@@ -1,0 +1,3 @@
+Good job Admin!
+
+gccctf{t00l_inst4ll4tion_c0mpl3te}

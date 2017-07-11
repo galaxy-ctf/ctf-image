@@ -1,0 +1,58 @@
+libraries:
+    - name: "Assay Q010"
+      files:
+        - /data/a/out.tsv
+    - name: "Sequence Reconstruction J28828"
+      files:
+        - /data/b/out.fa
+        - /data/b/out.gff3
+    - name: "Cross Linking Assay C3736"
+      files:
+        - /data/c/00.txt
+        - /data/c/01.txt
+        - /data/c/02.txt
+        - /data/c/03.txt
+        - /data/c/04.txt
+        - /data/c/05.txt
+        - /data/c/06.txt
+        - /data/c/07.txt
+        - /data/c/08.txt
+        - /data/c/09.txt
+        - /data/c/10.txt
+        - /data/c/11.txt
+        - /data/c/12.txt
+        - /data/c/13.txt
+        - /data/c/14.txt
+        - /data/c/15.txt
+        - /data/c/16.txt
+        - /data/c/17.txt
+        - /data/c/18.txt
+        - /data/c/19.txt
+        - /data/c/20.txt
+        - /data/c/21.txt
+        - /data/c/22.txt
+        - /data/c/23.txt
+        - /data/c/karyotype.hs1.txt
+        - /data/c/karyotype.hs2.txt
+        - /data/c/karyotype.hs3.txt
+        - /data/c/karyotype.hs4.txt
+        - /data/c/karyotype.hs5.txt
+        - /data/c/karyotype.hs6.txt
+        - /data/c/karyotype.hs7.txt
+        - /data/c/karyotype.hs8.txt
+        - /data/c/karyotype.hs9.txt
+        - /data/c/karyotype.hs10.txt
+        - /data/c/karyotype.hs11.txt
+        - /data/c/karyotype.hs12.txt
+        - /data/c/karyotype.hs13.txt
+        - /data/c/karyotype.hs14.txt
+        - /data/c/karyotype.hs15.txt
+        - /data/c/karyotype.hs16.txt
+        - /data/c/karyotype.hs17.txt
+        - /data/c/karyotype.hs18.txt
+        - /data/c/karyotype.hs19.txt
+        - /data/c/karyotype.hs20.txt
+        - /data/c/karyotype.hs21.txt
+        - /data/c/karyotype.hs22.txt
+        - /data/c/karyotype.hsX.txt
+        - /data/c/karyotype.hsY.txt

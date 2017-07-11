@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GalaxyCTF 2017</title>
+	<link href="https://ctf.galaxians.org/hacker.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+<style>
+.table .table{background-color:#aaa}
+.table-striped>tbody>tr:nth-of-type(odd){background-color:#ccc}
+.table-hover>tbody>tr:hover{background-color:#cfc}
+
+/* http://codepen.io/keithclark/pen/zqcEd */
+/* Stars
+------------------------------------- */
+
+.stars {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.stars {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #777, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #333, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #777, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #333, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #333, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #777, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0;
+}
+
+.stars:nth-child(1) {
+  background-position: 50% 50%;
+    opacity: 0.2;
+    transform: scale(0.8);
+    animation-timing-function: linear;
+}
+.stars:nth-child(2) {
+  background-position: 20% 60%;
+    opacity: 0.4;
+    transform: scale(1.2);
+    animation-timing-function: linear;
+}
+.stars:nth-child(3) {
+  background-position: -20% -30%;
+    opacity: 0.6;
+    transform: scale(1.8);
+    animation-timing-function: linear;
+}
+.stars:nth-child(4) {
+  background-position: 40% -80%;
+    opacity: 0.8;
+    transform: scale(2.2);
+    animation-timing-function: linear;
+}
+.stars:nth-child(5) {
+  background-position: -20% 30%;
+    opacity: 1;
+    transform: scale(2.8);
+    animation-timing-function: linear;
+}
+
+#htg {
+  font-size: 7em;
+  text-align: center;
+  text-shadow: 0px 0 20px #555;
+  color: black;
+}
+
+
+body {
+	overflow-x: hidden;
+	background: white;
+	color: #030;
+}
+
+a {
+	color: #0a0;
+}
+
+#chat-div {
+	min-width: 100%;
+	min-height: 300px;
+}
+
+#chat-div iframe{
+	min-width: 100%;
+	min-height: 300px;
+}
+</style>
+	<div id="main">
+		<div class="container">
+			<!-- Jumbotron -->
+			<div class="jumbotron" style="background: none">
+				<h1 id="htg">H4ck th3 Univ3r5e</h1>
+			</div>
+		</div>
+		<div id="space">
+			<div class="stars"></div>
+			<div class="stars"></div>
+			<div class="stars"></div>
+			<div class="stars"></div>
+			<div class="stars"></div>
+		</div>
+		<div class="container" id="text">
+			<div class="row tall-row">
+				<div class="col-lg-12">
+					<h1>Scoreboard</h1>
+					<hr>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div id="scoreboard">
+					</div>
+					<script type="text/javascript">
+					$('#scoreboard').load('https://scoreboard.ctf.galaxians.org/scoreboard #scoreboard');
+					</script>
+				</div>
+			</div>
+
+			<div class="row tall-row">
+				<div class="col-md-3">
+					<h1>Community</h1>
+					<div>
+						We maintain a Gitter community for finding team
+						mates, chatting, and notifying admins of any
+						issues.
+					</div>
+				</div>
+				<div class="col-md-9" style="padding:0px;">
+					<div id="chat-div">
+					</div>
+				</div>
+			</div>
+
+			<div class="row tall-row">
+				<div class="col-lg-12">
+					<h1>About</h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<hr>
+				<div class="col-xs-6 col-md-4">
+					<h2>When?</h2>
+					<p>
+						The CTF competition will start a week before GCC 2017, and
+						run until the last night of GCC.
+					</p>
+				</div>
+				<div class="col-xs-6 col-md-4">
+					<h2>Who Can Compete</h2>
+					<p>
+						Anyone! We <i>strongly</i> recommend that you form teams
+						involving at least one bioinformatician or biologist, and
+						one computer person. <u>Get out there, make new friends!</u>
+					</p>
+				</div>
+				<div class="col-xs-12 col-md-4">
+					<h2>Rules of Engagement</h2>
+					<ol>
+						<li>
+							<b>Please do not compete during presentations</b>. There is
+							plenty of time before the conference and during evenings in
+							which to work on problems. We ask that you be respectful of
+							the presenters.
+						</li>
+						<li>
+							Only hack the Galaxy instance you have been given
+							access to. Do not exploit our infrastructure and
+							ruin things for everyone.
+						</li>
+					</ol>
+				</div>
+			</div>
+
+			<!--
+					<div class="panel panel-primary">
+						<div class="panel-heading"><h3 class="panel-title">Panel primary</h3></div>
+						<div class="panel-body">Panel content</div>
+					</div>
+					<div class="list-group">
+						<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">List group item heading</h4>
+							<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+						</a>
+						<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">List group item heading</h4>
+							<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+						</a>
+					</div>
+	-->
+			<div class="row tall-row">
+				<hr />
+				<div class="col-md-12">
+					<p>
+					Designed and Built by <a href="https://github.com/shiltemann">@shiltemann</a> and <a href="https://github.com/erasche">@erasche</a>.
+					</p><p>
+					<a href="https://github.com/isislab/CTFd">CTF Scoreboard</a> licensed under Apache-2.0.
+					<a href="https://github.com/galaxyproject/galaxy/">Galaxy</a> is available under the AFL.
+					<a href="https://github.com/Brobin/hacker-bootstrap">Hacker bootstrap</a> theme available under MIT.
+					The GalaxyCTF 2017 docker image is based on bgruening/docker-galaxy-stable.
+					Once the competition is over, the image source will be published.
+					</p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+	room: 'galaxy-ctf/Lobby',
+	showChatByDefault: true,
+	targetElement: '#chat-div'
+
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+</body>
+</html>

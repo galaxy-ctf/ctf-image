@@ -1,0 +1,31 @@
+version: '2'
+services:
+    galaxy_ctf:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8080:80"
+            #- "8022:22"
+        environment:
+            PROXY_PREFIX: /galaxy
+            # Random hash string.
+            GALAXY_DEFAULT_ADMIN_PASSWORD: admin
+            GALAXY_DEFAULT_ADMIN_KEY: key-admin
+            GALAXY_CONFIG_OVERRIDE_STATSD_PREFIX: galaxy-all
+            GALAXY_CONFIG_OVERRIDE_STATSD_HOST: localhost
+            GALAXY_CONFIG_OVERRIDE_STATSD_PORT: 8125
+            # Team info
+            TEAM_ID: 2
+            TEAM_NAME: galaxians
+            TEAM_PASSWORD: galaxians
+        #volumes:
+            #- './gx:/export'
+        #depends_on:
+            #- toolshed
+    toolshed:
+        build:
+            context: .
+            dockerfile: Dockerfile_toolshed
+        ports:
+            - "9009:80"

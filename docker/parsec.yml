@@ -1,0 +1,6 @@
+local:
+    key: ""
+    email: "admin@galaxy.org"
+    password: "admin"
+    url: "localhost:8080"
+    admin: True

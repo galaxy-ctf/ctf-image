@@ -1,0 +1,1 @@
+Greetings Time Traveler! Your flag is gccctf{great_scott_you're_a_time_traveller}

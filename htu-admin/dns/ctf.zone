@@ -1,0 +1,32 @@
+$ORIGIN galaxians.org.
+@	900	IN	SOA	ns-348.awsdns-43.com. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400
+@	300	IN	A	104.236.19.45
+@	300	IN	MX	10 mxb.mailgun.org.
+@	300	IN	MX	10 mxa.mailgun.org.
+@	172800	IN	NS	ns-348.awsdns-43.com.
+@	172800	IN	NS	ns-1633.awsdns-12.co.uk.
+@	172800	IN	NS	ns-993.awsdns-60.net.
+@	172800	IN	NS	ns-1387.awsdns-45.org.
+@	300	IN	TXT	"v=spf1 include:mailgun.org ~all"
+@	900	IN	TXT	"keybase-site-verification=AEajGX-7k0A1x2NLTVi2ZXeAvzzIcM9678NVsA2SLzk"
+ctf	300	IN	CNAME	lb.lb
+email	300	IN	CNAME	mailgun.org.
+external-dns-adminproject	300	IN	TXT	"grafana.prometheus.galaxians.org."
+external-dns-adminproject	300	IN	TXT	"influxdb.prometheus.galaxians.org."
+external-dns-adminproject	300	IN	TXT	"lb.galaxy.galaxians.org."
+external-dns-adminproject	300	IN	TXT	"lb.lb.galaxians.org."
+external-dns-adminproject	300	IN	TXT	"prometheus.prometheus.galaxians.org."
+external-dns-adminproject	300	IN	TXT	"toolshed.toolshed.galaxians.org."
+grafana	300	IN	CNAME	lb.lb
+grafana.prometheus	300	IN	A	207.154.226.63
+gx.ctf	300	IN	CNAME	lb.lb
+influxdb.prometheus	300	IN	A	207.154.226.63
+lb.galaxy	300	IN	A	207.154.232.139
+lb.lb	300	IN	A	207.154.232.139
+mx._domainkey	300	IN	TXT	"k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8nLoYFn8MgOi1qEJJWsT/J9q2b75y1ScdCKj9VABxNwobeFEm9tLJGUduA6aaApwSt/2MVi1irA92QqFsr19P+2430G1hgIVH9zNhJEn86GQVk2cutk4t6s73eZ0Jucc8MZXHNRCKJS1LUC1yDNGIdmbIHYaDLLSgqYU2ENetYwIDAQAB"
+prometheus	300	IN	CNAME	lb.lb
+prometheus.prometheus	300	IN	A	207.154.226.63
+rancher	300	IN	A	207.154.240.65
+scoreboard.ctf	300	IN	CNAME	lb.lb
+toolshed.ctf	300	IN	CNAME	lb.lb
+toolshed.toolshed	300	IN	A	207.154.232.139
