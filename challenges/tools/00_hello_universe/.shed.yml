@@ -1,0 +1,8 @@
+name: hello_universe
+description: Simple Hello, Universe problem
+owner: galaxians
+type: unrestricted
+categories:
+    - intro
+exclude:
+    - README.md

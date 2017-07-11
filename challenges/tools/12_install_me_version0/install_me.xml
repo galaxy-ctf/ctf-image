@@ -1,0 +1,17 @@
+<tool id="install_me" name="Install me" version="1.0">
+  <command detect_errors="aggressive"><![CDATA[
+      #if $input:
+        cp /flags/12_install_me.txt $output
+      #end if
+  ]]></command>
+  <inputs>
+      <param name="input" type="boolean" checked="false" label="Would you like a flag?"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <help><![CDATA[
+You did it! You installed me! Now run me to get the flag
+  ]]></help>
+  <citations/>
+</tool>

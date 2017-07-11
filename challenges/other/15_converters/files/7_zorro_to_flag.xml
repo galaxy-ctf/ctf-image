@@ -1,0 +1,12 @@
+<tool id="CONVERTER_zorro_to_flag" name="Enough already, just give me the flag!" version="1.0.1" hidden="true">
+    <!-- <description>__NOT_USED_CURRENTLY_FOR_CONVERTERS__</description> -->
+    <command>python '$__tool_directory__/converting_ctf.py' '$input1' '$output1' 'to_flag' </command>
+    <inputs>
+        <param format="zorro" name="input1" type="data" label="Choose your non-flag"/>
+    </inputs>
+    <outputs>
+        <data format="flag" name="output1"/>
+    </outputs>
+    <help>
+    </help>
+</tool>

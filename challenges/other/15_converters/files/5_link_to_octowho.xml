@@ -1,0 +1,12 @@
+<tool id="CONVERTER_link_to_octowho" name="Wibbly Wobbly! Timey Wimey!" version="1.0.1" hidden="true">
+    <!-- <description>__NOT_USED_CURRENTLY_FOR_CONVERTERS__</description> -->
+    <command>python '$__tool_directory__/converting_ctf.py' '$input1' '$output1' 'to_octowho' </command>
+    <inputs>
+        <param format="link" name="input1" type="data" label="Choose your non-flag"/>
+    </inputs>
+    <outputs>
+        <data format="octowho" name="output1"/>
+    </outputs>
+    <help>
+    </help>
+</tool>

@@ -1,0 +1,8 @@
+name: get_config_example_solution
+description: tools can access sensitive information!
+long_description: |
+  Find the flag!
+owner: galaxians
+type: unrestricted
+categories:
+- tool-dev

@@ -1,0 +1,28 @@
+<tool id="back_in_time" name="Back in time" version="1920">
+  <command detect_errors="aggressive"><![CDATA[
+      cp /flags/07_back_in_time_0.txt $output;
+      echo "P.S. $col?? really? :/" >> $output;
+  ]]>
+  </command>
+  <inputs>
+    <!-- Random parameter to throw them off ;) -->
+    <param label="What is your favorite colour?" name="col" type="select">
+        <option value="red"> Red </option>
+        <option value="yellow"> Yellow </option>
+        <option value="green"> Green </option>
+        <option value="blue"> Blue </option>
+        <option value="orange"> Orange </option>
+        <option value="purple"> Purple </option>
+        <option value="pink"> Pink </option>
+        <option value="black"> Black </option>
+        <option value="white"> White </option>
+        <option value="#E3CF57"> #E3CF57 </option>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <help>
+  </help>
+  <citations/>
+</tool>

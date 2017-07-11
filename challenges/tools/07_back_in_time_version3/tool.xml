@@ -1,0 +1,16 @@
+<tool id="back_in_time" name="Back in time" version="1999">
+  <command detect_errors="aggressive"><![CDATA[
+      cp /flags/07_back_in_time_3.txt $output
+  ]]>
+  </command>
+  <inputs>
+    <!-- Random parameter to throw them off ;) -->
+    <param label="What's your favorite number?" name="input" type="integer" value="1" min="0" max="100"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <help>
+  </help>
+  <citations/>
+</tool>

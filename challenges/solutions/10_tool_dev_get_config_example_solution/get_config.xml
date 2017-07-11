@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<tool id="get_config_example" name="Get Config Example Solution" version="1.1">
+  <command detect_errors="aggressive"><![CDATA[
+      echo "All values in __app__.config :"
+      #for $c, $d in sorted($__app__.config.__dict__.iteritems())
+      #if $c != "master_api_key" and $c != "config_dict":
+          && echo "$c: $d" >> $output
+      #end if
+      #end for
+  ]]></command>
+  <inputs>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <help></help>
+  <citations/>
+</tool>

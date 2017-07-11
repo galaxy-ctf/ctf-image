@@ -1,0 +1,18 @@
+<tool id="dbkeys" name="Reference Genomes" version="1.1">
+  <command detect_errors="aggressive"><![CDATA[
+      #if $input.dbkey == 'gccctf'
+        cp /flags/11_dbkeys.txt $output
+      #else
+        echo "I don't like your reference genome ($input.dbkey)" > $output &&
+        echo "No flag for you!" >> $output
+      #end if
+  ]]></command>
+  <inputs>
+      <param name="input" type="data" label="Give me a file and I may give you a flag!"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <help></help>
+  <citations/>
+</tool>

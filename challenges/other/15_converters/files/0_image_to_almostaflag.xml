@@ -1,0 +1,12 @@
+<tool id="CONVERTER_image_to_almostaflag" name="Convert to a flag" version="1.0.1" hidden="true">
+    <!-- <description>__NOT_USED_CURRENTLY_FOR_CONVERTERS__</description> -->
+    <command>python '$__tool_directory__/converting_ctf.py' '$input1' '$output1' 'almost'</command>
+    <inputs>
+        <param format="png,jpg,gif" name="input1" type="data" label="Choose your non-flag"/>
+    </inputs>
+    <outputs>
+        <data format="almost_a_flag" name="output1"/>
+    </outputs>
+    <help>
+    </help>
+</tool>

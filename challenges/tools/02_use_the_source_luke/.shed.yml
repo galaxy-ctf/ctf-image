@@ -1,0 +1,10 @@
+name: use_the_source_luke
+description: Extra data can be hidden anywhere!
+long_description: |
+  This tool developer decided to include some extra data files with their tool.
+  You might want to check out their code and see if they left any incriminating
+  evidence in their repo.
+owner: galaxians
+type: unrestricted
+categories:
+- tool-dev

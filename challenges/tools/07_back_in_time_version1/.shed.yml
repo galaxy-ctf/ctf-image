@@ -1,0 +1,8 @@
+name: back_in_time
+description: Think McFly, think!
+long_description: |
+  Find the flag!
+owner: galaxians
+type: unrestricted
+categories:
+    - intro

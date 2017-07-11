@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<tool id="gccctf.01" name="Hello, Galaxy" version="1.1">
+  <command detect_errors="aggressive">
+  echo "The flag is gccctf{h3llo_un1verse!}" > $output
+  </command>
+  <inputs>
+    <!-- Random parameters to throw them off ;) -->
+    <param label="File A" name="file_a" type="data" format="tabular"/>
+    <param label="Column A" name="col_a" type="integer" value="1" help="1 indexed columns." />
+    <param label="File B" name="file_b" type="data" format="tabular"/>
+    <param label="Column B" name="col_b" type="integer" value="1" help="1 indexed columns." />
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <help>
+  </help>
+  <citations/>
+</tool>

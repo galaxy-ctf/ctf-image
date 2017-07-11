@@ -1,0 +1,1 @@
+congrats, you found me! gccctf{finding_flags_fia_ftp_folders_ftw}

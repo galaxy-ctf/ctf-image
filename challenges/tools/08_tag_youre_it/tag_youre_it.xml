@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<tool id="tag_youre_it" name="Tag! You're it" version="1.1">
+  <command detect_errors="aggressive"><![CDATA[
+    #set l = len($input.tags)
+    #if $l == 3
+        #if $input.tags[0].value == "gcc2017"
+            #if $input.tags[1].user_tname == "CaptureTheFlag"
+                #if $input.tags[2].value == "tagsarefun"
+                    cp /flags/08_tag_youre_it.txt $output
+                #elif $input.tags[2].user_tname =="tagsarefun"
+                    echo "Your third tag must be a propagating tag!" > $output
+                #else
+                    echo "Your third tag is incorrect" > $output
+                #end if
+            #elif $input.tags[1].value =="capturetheflag"
+                echo "Your second tag must be a non-propagating tag!" > $output
+            #else
+                echo "Your second tag is incorrect" > $output
+            #end if
+        #elif $input.tags[0].user_tname =="GCC2017"
+            echo "Your first tag must be a propagating tag!" > $output
+        #else
+            echo "Your first tag is incorrect" > $output
+        #end if
+    #else
+        echo "You must have exactly three tags! you have $l" > $output
+    #end if
+  ]]></command>
+  <inputs>
+    <param name="input" type="data" label="Ready for a game of tag? Give me a dataset that meets all my criteria! (see help section below)"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <help><![CDATA[
+You will get a flag if your dataset has the following tags (order matters!)
+
++------------+-----------------------------+------------------+
+| Tag number | value                       | type             |
++============+=============================+==================+
+| 1          |  "GCC2017"                  | propagating      |
++------------+-----------------------------+------------------+
+| 2          |  "CaptureTheFlag"           | non-propagating  |
++------------+-----------------------------+------------------+
+| 3          |  "tagsarefun"               | propagating      |
++------------+-----------------------------+------------------+
+
+
+  ]]></help>
+  <citations/>
+</tool>

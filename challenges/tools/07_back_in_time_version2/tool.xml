@@ -1,0 +1,16 @@
+<tool id="back_in_time" name="Back in time" version="1985">
+  <command detect_errors="aggressive"><![CDATA[
+      cp /flags/07_back_in_time_2.txt $output
+  ]]>
+  </command>
+  <inputs>
+    <!-- Random parameter to throw them off ;) -->
+    <param label="What is the square root of pi?" name="input" type="boolean" value=""/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <help>
+  </help>
+  <citations/>
+</tool>

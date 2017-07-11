@@ -1,0 +1,12 @@
+<tool id="CONVERTER_octowho_to_zorro" name="En garde!" version="1.0.1" hidden="true">
+    <!-- <description>__NOT_USED_CURRENTLY_FOR_CONVERTERS__</description> -->
+    <command>python '$__tool_directory__/converting_ctf.py' '$input1' '$output1' 'to_zorro' </command>
+    <inputs>
+        <param format="octowho" name="input1" type="data" label="Choose your non-flag"/>
+    </inputs>
+    <outputs>
+        <data format="zorro" name="output1"/>
+    </outputs>
+    <help>
+    </help>
+</tool>

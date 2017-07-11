@@ -1,0 +1,9 @@
+name: bugs_everywhere
+categories:
+- intro
+description: Bugs everywhere
+exclude:
+- README.md
+long_description: Secret-leaking bugs can be anywhere!
+owner: galaxians
+type: unrestricted

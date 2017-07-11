@@ -1,0 +1,16 @@
+<tool id="back_in_time" name="Back in time" version="2017">
+  <command detect_errors="aggressive"><![CDATA[
+      cp /flags/07_back_in_time_4.txt $output
+  ]]>
+  </command>
+  <inputs>
+    <!-- Random parameter to throw them off ;) -->
+    <param label="What's the magic word?" name="input" type="text" value="abracadabra" optional="False"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output"/>
+  </outputs>
+  <help>
+  </help>
+  <citations/>
+</tool>

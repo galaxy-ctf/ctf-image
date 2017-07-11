@@ -1,0 +1,8 @@
+name: install_me
+description: admin training
+long_description: |
+  Find the flag!
+owner: galaxians
+type: unrestricted
+categories:
+    - admin

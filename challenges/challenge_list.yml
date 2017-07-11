@@ -1,0 +1,528 @@
+# list of completed challenges and info for submission system
+#
+# files: indicates any files that need to be attached to challenge in ctf platform
+# notes: just comments for ourselves
+# level: min privelege level needed: regular|admin|toolshed|unix
+
+categories:
+    Warm up: First steps into the hacking world...
+    Explore the Galaxy: Visiting interesting locales around the Galaxy
+    Tools: Tool and Tool development based hacks
+    Infiltration: Hacking!
+    Data Visualization: \U0001F4CA
+    Admin: Challenges for those with administrative privileges.
+    Extreme: Above and beyond
+    Bio: Biologically related challenges
+
+category_order:
+    - Warm up
+    - Explore the Galaxy
+    - Tools
+    - Infiltration
+    - Data Visualization
+    - Bio
+    - Admin
+    - Extreme
+
+challenges:
+    - title: Start Here
+      category: Warm up
+      level: regular
+      description: |
+        Welcome Galactic Hackers!
+
+        In this capture the flag competiton you're hunting for these strings called
+        "flags". These flags always begin with "gccctf{" followed by a message and
+        ending with "}"
+
+        This first challenge is super easy, simply copy this flag and claim your first point!
+
+        gccctf{th1s_i5_t0o_34sy!}
+
+      flag: gccctf{th1s_i5_t0o_34sy!}
+      points: 1
+      folder: None
+      files: None
+      notes: just an easy one to familiarize players with the submission system
+      hints:
+        - Try entering the gccctf{th1s_i5_t0o_34sy!} into the "Solution" box
+
+    - title: Hello, Galaxy!
+      category: Tools
+      level: regular
+      description: |
+        We hid a flag in the tool named "Hello, Galaxy!" tool, see if you can find it!
+
+        Tool: Hello, Galaxy!
+      flag: gccctf{h3llo_un1verse!}
+      points: 5
+      folder: tools/00_hello_universe
+      files: None
+      notes: running a tool, flag will be in the output dataset
+      hints:
+        - Do you know where your Galaxy instance is? If not click on "Team" in the menu bar. There you'll find a link to your Galaxy instance.
+        - Maybe this tool needs some inputs
+        - Try uploading a tabular file and running the tool.
+
+    - title: Use the source, Luke
+      category: Tools
+      level: regular
+      description: |
+        We hid our flag a little better this time, no way you'll find it this time!
+
+        Tool: May the source be with you
+      flag: gccctf{secret_comments_in_repos_are_not_so_secret}
+      points: 10
+      folder: tools/02_use_the_source_luke
+      files: None
+      notes: need to download the tool source, flag a comment in the xml
+      hints:
+        - How would you find the source of a tool?
+        - Under the tool's title bar, there is a dropdown "Options". For tools installed from the toolshed you can see their toolshed repository.
+        - Under the "Repository Options", you can "Browse repository tip files" which might have some interesting data...
+      lesson: |
+        [Dev] You have to be very careful about not including access keys to
+        third party systems, license keys, etc.
+
+    - title: Use the source, Luke. Episode II
+      category: Tools
+      level: regular
+      description: |
+        Ok, we know what we did wrong. We've fixed the repository so you can't
+        find the key any more.
+
+        Tool: May the source be with you, episode II
+      flag: gccctf{secrets_are_forever}
+      points: 10
+      folder: tools/03_use_the_source_luke_2_version*
+      files: None
+      notes: need to browse through TS repo history
+      hints:
+        - The title suggests that they've patched the repo from the first tool. I wonder what has changed?
+        - Clicking "Browse repository tip files" only shows you the newest files
+        - Have you tried clicking all the URLs on the toolshed repository information page?
+        - The "clone this repo" url points to a mercurial repository browser. There you can see the history of the tool.
+      lesson: |
+        [Dev] If you've ever accidentally leaked secrets by including
+        them in a repository, those secrets should be considered public
+        forever. While you can overwrite github repositories, you cannot
+        overwrite old versions of ToolShed repositories due to Galaxy's
+        guarantee of reproducibility.
+
+        No matter whether it is GitHub, BitBucket, a ToolShed repository, or
+        any other source control system, those secrets are essentially forever
+        public. You should revoke / replace that secret immediately.
+
+    - title: Bugs, bugs everywhere!
+      category: Tools
+      level: regular
+      description: |
+        If all goes well you won't get the flag!
+
+        Tool: Bugs
+      flag: gccctf{bu9_rep0rts_ev3rywh3re}
+      points: 10
+      folder: tools/04_bugs
+      files: None
+      notes: tool always fails, flag in stderr
+      hints:
+        - Something seems to have gone wrong.
+        - Bug reports, stack traces, stderr/stdout are always interesting sources of underlying information.
+        - Click the bug report icon. Read the report.
+      lesson: |
+        [Dev] Stack traces and stderr/stdout are always interesting sources of
+        underlying information. As a developer, you should be careful to not
+        throw exceptions which include sensitive information. If your API
+        request to an authenticated service fails, you should not throw an
+        exception like "Error: could not access https://example.com?secret_key=..."
+
+        [Admin] Do not rely on secret paths to hide information. Obscurity is
+        not security and you never know when a tool will failure during
+        accessing that path and leak that information to a user who shouldn't
+        have it. Always use proper access control.
+
+    - title: The Time Traveler's flag
+      category: Tools
+      level: regular
+      description: |
+        You're too late! The flag is not here any more. Maybe you could ask Doc Brown
+        for help?
+
+        Tool: Back in time
+      flag: gccctf{great_scott_you're_a_time_traveller}
+      points: 15
+      folder: tools/07_back_in_time_version*
+      files: None
+      notes: flag hidden in a previous version of the tool
+      hints:
+        - Tools change over time
+        - The tool option menu allows you to run older versions of tools, for reproducibility.
+      lesson: |
+        [User] Galaxy will keep old versions of tools around forever, so your
+        workflows don't break. Individual Galaxies may not adhere to this
+        policy, but the larger public instances do, in the interests of
+        science.
+
+    - title: Find The Phlag
+      category: Explore the Galaxy
+      level: regular
+      description: |
+        Where could the flag be I wonder?
+      flag: gccctf{finding_flags_fia_ftp_folders_ftw}
+      points: 15
+      folder: other/09_Find_The_Phlag
+      files: None
+      notes: flag hidden in user's FTP upload dir
+      hints:
+        - There are multiple ways to upload data.
+        - Check the FTP upload directory, maybe you uploaded some interesting data?
+      lesson: |
+          [User] FTP is great for transferring huge numbers of files in batch
+          and uploading files larger than 2GB. Ask your local admin about it!
+
+    - title: You're not my type
+      category: Explore the Galaxy
+      level: regular
+      description: |
+        It's not me, it's you. Maybe you could change?
+      flag: gccctf{y0u_ar3_jus7_my_typ3}
+      points: 15
+      folder: None
+      files: None
+      notes: flag in datatypes, visible when trying to change datatype of a file
+      hints:
+        - files have types.
+        - This tool seems to be looking for a very specific file format.
+        - Editing the dataset will allow you to "convert" the file type.
+
+    - title: Picasso's Pipeline I
+      category: Explore the Galaxy
+      level: regular
+      description: |
+        A good workflow is a thing of beauty.
+
+        Download the file and find the flag!
+
+        <a href="https://gist.github.com/shiltemann/ca2ec7109b7fe571987b4a85ce2f8643#file-picasso-s-pipeline">file</a>
+      flag: GCCCTF{WORKFLOW_ARTIST}
+      points: 20
+      folder: other/10_Picassos_Pipeline
+      files:  other/10_Picassos_Pipeline/flag.ga
+      notes: flag in workflow definition file
+
+    - title: Picasso's Pipeline II
+      category: Explore the Galaxy
+      level: regular
+      description: |
+        Picasso made another piece of workflow art, but this one was damaged,
+        can you restore it?
+
+        Download the file and find the flag!
+
+        <a href="https://gist.github.com/shiltemann/7c7a2b94a98529c4ba3471ed2cddc728#file-picasso-s-pipeline-2">file</a>
+      flag: GCCCTF{WORKFLOW_RESTORED}
+      points: 30
+      folder: other/11_Picassos_Pipeline2
+      files:  other/11_Picassos_Pipeline2/flag.ga
+      notes: flag in workflow definition file, but file corrupted (removed one brace and one comma and duplicated one UUID)
+
+    - title: User Management
+      category: Admin
+      level: admin
+      description: |
+        Hello Galaxy Admin,
+
+        One of your users stole a flag, please retreive it!
+      flag: gccctf{m4n4ge_y@ur.us3rs}
+      points: 20
+      folder: other/12_user_management
+      files: None
+      notes: one of the users' has flag for email address
+      hints:
+        - You're running a pretty busy Galaxy. You should take a look at your users in the admin section.
+
+    - title: Key Management
+      category: Admin
+      level: admin
+      description: |
+        Hello Galaxy Admin,
+
+        Another one of your users stole a flag, please retreive it!
+      flag: gccctf{th3_k3y_t0_my_fl4g}
+      points: 20
+      folder: other/12_user_management
+      files: None
+      notes: one of the users' has flag for api key
+      hints:
+        - As an admin, you can see some pretty sensitive information about users.
+      lesson: |
+        [Admin] With user impersonation enabled, you can be anyone and see
+        everything. With great power comes great responsibility.
+
+        [Users] Don't upload anything to Galaxy which shouldn't be there.
+
+    - title: Reference Data
+      category: Admin
+      level: admin
+      description: |
+        Hello Galaxy Admin,
+
+        Always keep an eye on the reference data installed on your Galaxy!
+      flag: gccctf{little_bobby_data_tables}
+      points: 20
+      folder: other/13_reference_data
+      files: None
+      notes: just have to check in the data tables registry in admin panel
+
+    - title: Job Metrics
+      category: Admin
+      level: admin
+      description: |
+        Hello Galaxy Admin,
+
+        Oh no! A flag is leaked every time you run a job, please find it quick!
+      flag: gccctf{admins_get_more_job_info}
+      points: 20
+      folder: None
+      files: None
+      notes: look in job info as admin, flag after uname output
+      hints:
+        - There is information available on every single job that is run.
+        - Check the job information and browse the metadata
+      lesson: |
+          [Admin] Cluster information is generally not considered secret. For
+          better reproducibility (platform specific quirks?) you can even voluntarily
+          <a href="https://github.com/galaxyproject/galaxy/pull/3344">expose this
+          metadata to your users</a>.
+
+    - title: Converters
+      category: Explore the Galaxy
+      level: regular
+      description: |
+        I hear this Galaxy lets you convert cat pictures to flags!
+      flag: gccctf{converting_like_a_champ}
+      points: 30
+      folder: other/15_converters
+      files: None
+      notes: upload image file, use series of converters to get flag
+
+    - title: flaws.cloud
+      category: Infiltration
+      description: |
+        Cloud infrastructure is quite different from non-cloud infrastructure.
+        There are new ways to hurt yourself in the cloud. Did you know that
+        most cloud providers expose a metadata service?
+
+        For safety, many AWS instances include an iptables rule to prohibit
+        non-root access to this service, as crazy things like IAM data can live there.
+
+        This VM is running on DigitalOcean, but also running on Rancher, I sure
+        hope the admin didn't leave any secrets around during the
+        initialization process...
+      flag: gccctf{the_clouds_are_leaking}
+      points: 50
+      folder: None
+      files: None
+      notes: A flag has been added to the image tags. We'll need to be sure to update these.
+      lesson: |
+          [Admin] Due to our launch method, we're not able to add data to
+          user-init. This is where you'd generally expect secret information
+          and secret provisioning information to be stored.
+
+          So, we stuck it in a metadata element that's available across
+          rancher. Rancher's metadata service seems to mirror AWS's to an
+          extent. Rancher allows you to add user-defined metadata to a
+          container, which a newer admin might be tempted to do.
+
+          When you're running a service like Galaxy that essentially behaves as
+          a proxy, be absolutely certain you aren't accidentally exposing
+          metadata.
+
+    - title: admin password
+      category: Infiltration
+      description: |
+        The server administrators set up a <a
+        href="https://scoreboard.ctf.galaxians.org/admin_pw">secret password
+        sharing site</a>. See if you can get access to their password, and
+        become a Galaxy Administrator
+      flag:
+        regex: true
+        flag: '^[a-f0-9-]{32,}$'
+      points: 30
+      folder: None
+      files: None
+      notes: There is an admin page which checks the client IP against a list from rancher.
+      lesson: |
+          [Admin] An attacker who has access to your galaxy instance has HTTP
+          access to every internal host as well. If internal hosts expose data
+          to internal services, then they need to be firewalled off from
+          Galaxy, or to require authenticated access.
+    - title: Tag! You're it!
+      category: Explore the Galaxy
+      level: regular
+      description: |
+        Ready for a game of tag?
+
+        Tool: Tag, You're it! (intro)
+      flag: gccctf{capture_the_tag}
+      points: 30
+      folder: tools/08_tag_youre_it
+      files: None
+      notes: give a dataset the correct set of dataset tags to receive the flag
+      hints:
+        - There are two types of dataset tags, find out how to make them!
+      lesson: |
+        Propagating tags will be passed on to outputs of a tool, non-propagating tags will not
+
+
+    - title: Collectors Items
+      category: Explore the Galaxy
+      level: regular
+      description: |
+        Collections are really useful. Prove you know how to make one and receive your flag!
+      flag:  gccctf{excellent_collection_action}
+      points: 30
+      folder: tools/09_collectors_items
+      files: None
+      notes: build a collection with requested identifiers
+      hints:
+          - Element names are taken from the dataset names
+          - Pair names you can choose yourself, find out how!
+
+    - title: Reference Genomes
+      category: Explore the Galaxy
+      level: regular
+      description: |
+        It can be useful to add some metadata about your files
+
+        Tool: Reference Genomes
+      flag: gccctf{always_check_your_dbkey}
+      points: 20
+      folder: tools/11_dbkeys
+      files: None
+      notes: if file has the correct dbkey (gccctf) user is given the flag
+      hints:
+          - Find out how to tell Galaxy about the reference genome of your sample
+
+    - title: Pages
+      category: Explore the Galaxy
+      level: regular
+      description: |
+        Did you know you can publish pages about your work on Galaxy?
+      flag: gccctf{pages_let_you_describe_and_share_your_work}
+      points: 20
+      folder: other/16_pages
+      files: None
+      notes: flag in one of the galaxy pages
+
+    - title: Install Me
+      category: Admin
+      level: admin
+      description: |
+        Hello Again Galaxy Admin!
+
+        We need you to install the tool named "install_me", we hear it may lead to a flag
+      flag: gccctf{t00l_inst4ll4tion_c0mpl3te}
+      points: 20
+      folder: tools/12_install_me
+      files: None
+      notes: need to install a tool from toolshed to get the flag
+
+
+    - title: Level 1
+      category: Data Visualization
+      level: regular
+      description: |
+        Bob received some RNA gene expression data from his colleague. Could you could help him analyse it?
+      flag: gccctf{y0ur_data_h1des_m4ny_s3cr3ts}
+      points: 20
+      folder: data/viz_exploration_qr
+      files: None
+      notes: qr code encoded for vis in heatmap
+
+    - title: Level 2
+      category: Data Visualization
+      level: regular
+      description: |
+        Sometimes rectangular visualization just doesn't cut it.
+      flag: gccctf{dont_be_a_square}
+      points: 30
+      folder: data/viz_exploration_circ
+      files: None
+      notes: flag encoded for display in circos. Currently "easy" because it'll basically work if you just setup links + karyotype.
+
+    - title: Level 3
+      category: Data Visualization
+      level: regular
+      description: |
+        Bob is at it again. This time he's received some craaazy gene models on
+        a virus collected from space. Help him visualize the gene models for
+        publication.
+      flag: gccctf{}
+      points: 30
+      folder: data/viz_exploration_jb
+      files: None
+      notes: gff3 encoded gene models for display in JBrowse.
+
+    - title: R3al W0rld
+      category: Extreme
+      level: regular
+      description: |
+          If you find a <a href="https://github.com/galaxyproject/galaxy/pull/4113">real
+          security bug in Galaxy</a> (and mention the CTF in your bug report),
+          we'll respond with a flag you can use to redeem your points.
+      flag: gccctf{23d3de95-b358-4939-95d9-f87a38bd28fd}
+      points: 100
+      folder: None
+      files: None
+      notes: found a real bug
+
+    - title: Grand Finale I: Flag Envy
+      category: Development
+      level: admin
+      description: |
+        The JQ tool could be (ab)used to obtain a flag, too bad it got patched!
+      flag: gccctf{environmental_protection_agency}
+      points: 50
+      folder: tools/13_jq_version*
+      files: None
+      notes: two versions of jq tool in toolshed, old one did not clear the env beforehand, hide flag in it
+      hints:
+        - check the old version of jq, what's different?
+      lesson: |
+        Always make sure you sandbox your tools
+
+    - title: Grand Finale III: Skewed results
+      category: Bio
+      level: regular
+      description: |
+        Jane recently received some sequences from her crazy colleagues. They
+        seem a bit... skewed, don't they? Almost like there was some design
+
+        You can find the sequences <a href="https://raw.githubusercontent.com/erasche/galaxy-ctf/master/challenges/bio/genome.fa?token=AAb_u-NjzgiSDWC0ZVvkZdKJF7W0pnStks5ZaJTvwA%3D%3D">here</a>.
+      flag: GCCCTF F571A37E-1352-488D-9C13-0F6663FE53BA
+      points: 40
+      folder: bio/gf_3_genome_gc
+      files: None
+      notes: % gc translates into ascii characters.
+      hints:
+        - GC Content
+        - ASCII
+
+    - title: Grand Finale IV: Variance
+      category: Bio
+      level: regular
+      description: |
+        Continuing her investigation, Jane sent the new sequences off for
+        sequencing. The results show some unexpected variance. Identify the
+        variations and figure out what they mean.
+
+        <a href=https://raw.githubusercontent.com/erasche/galaxy-ctf/master/challenges/bio/gf_5_variants/single.bam?token=AAb_u9eHBjOix6msshHTI2W2UsYwhF60ks5ZaKQLwA%3D%3D">Download the sequencing results.</a>
+      flag: gccctf{dc4194cc-8ad2-4781-95e1-7a296689866e}
+      points: 80
+      folder: bio/gf_5_variants
+      files: None
+      notes: After pulling out the changes, they're two-bit encoding of the ascii string for the flag.
+      hints:
+        - Identify variants with bcftools
+        - ASCII

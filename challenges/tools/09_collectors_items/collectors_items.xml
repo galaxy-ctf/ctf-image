@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<tool id="collectors_items" name="Collectors Items" version="1.1">
+  <command detect_errors="aggressive"><![CDATA[
+      echo "Checking your collection"
+
+      #if $input[0].name == "helix" and $input[0][0].name == "Watson" and $input[0][1].name == "Crick"
+          #if $input[1].name == "excellent" and $input[1][0].name == "Bill" and $input[1][1].name == "Ted"
+              #if $input[2].name == "snack" and $input[2][0].name == "Mac" and $input[2][1].name == "Cheetos"
+                && cp /flags/09_collectors_items.txt $output
+              #else
+                && echo "your third pair is incorrect, try again!" >> $output
+              #end if
+          #else
+            && echo "your first second is incorrect, try again!" >> $output
+          #end if
+      #else
+        && echo "your first pair is incorrect, try again!" >> $output
+      #end if
+
+  ]]></command>
+  <inputs>
+      <param name="input" type="data_collection" collection_type="list:paired" label="Input Collection"
+          help="If you give me a collection I like I will give you a flag"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+  <help><![CDATA[
+You will get a flag if your collection has the following pairs (order matters!)
+
++---------------+--------------------+------------------+
+|    Forward    |     pair name      |     Reverse      |
++===============+====================+==================+
+|    Watson     |       helix        |     Crick        |
++---------------+--------------------+------------------+
+|     Bill      |      excellent     |      Ted         |
++---------------+--------------------+------------------+
+|     Mac       |       snack        |     Cheetos      |
++---------------+--------------------+------------------+
+
+
+  ]]></help>
+  <citations/>
+</tool>

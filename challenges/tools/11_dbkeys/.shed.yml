@@ -1,0 +1,10 @@
+name: dbkeys
+description: reference genome
+long_description: |
+  Find the flag!
+owner: galaxians
+type: unrestricted
+categories:
+    - intro
+exclude:
+    - builds.txt
